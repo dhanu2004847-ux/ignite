@@ -97,7 +97,7 @@ CampusConnectApplication.java
 5. Open browser and visit:
 
 ```bash
-http://localhost:8080
+http://localhost:8081
 ```
 
 ---
