@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Smart Match</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <h1>Smart Matching Results</h1>
+    <nav>
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/matches}">Smart Match</a>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="item-card" th:if="${#lists.isEmpty(matches)}">
+        <p>No matches found.</p>
+    </div>
+
+    <div class="item-card" th:each="match : ${matches}">
+        <p th:text="${match}"></p>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Priority Ranking</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <h1>Priority Ranking</h1>
+    <nav>
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/priority-ranking}">Priority Ranking</a>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="item-card" th:if="${#lists.isEmpty(rankedItems)}">
+        <p>No lost items available.</p>
+    </div>
+
+    <div class="item-card" th:each="item : ${rankedItems}">
+        <h3 th:text="${item.itemName}">Item Name</h3>
+        <p><strong>Category:</strong> <span th:text="${item.category}"></span></p>
+        <p><strong>Location:</strong> <span th:text="${item.location}"></span></p>
+        <p><strong>Date:</strong> <span th:text="${item.lostDate}"></span></p>
+        <p><strong>Priority Score:</strong> <span th:text="${algorithmService.calculatePriority(item)}"></span></p>
+    </div>
+</div>
+</body>
+</html>

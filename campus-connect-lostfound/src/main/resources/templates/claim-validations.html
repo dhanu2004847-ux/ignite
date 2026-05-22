@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Claim Validation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <h1>Claim Validation Results</h1>
+    <nav>
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/claim-validations}">Claim Validation</a>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="item-card" th:if="${#lists.isEmpty(validationResults)}">
+        <p>No claim validations available.</p>
+    </div>
+
+    <div class="item-card" th:each="result : ${validationResults}">
+        <p th:text="${result}"></p>
+    </div>
+</div>
+</body>
+</html>

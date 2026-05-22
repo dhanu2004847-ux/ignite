@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lost Items</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <h1>Lost Items</h1>
+    <nav>
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/lost-items}">Lost Items</a>
+        <a th:href="@{/found-items}">Found Items</a>
+        <a th:href="@{/report-lost}">Report Lost</a>
+        <a th:href="@{/report-found}">Report Found</a>
+        <a th:href="@{/claim-item}">Claim Item</a>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="item-card" th:each="item : ${lostItems}">
+        <h3 th:text="${item.itemName}"></h3>
+        <p><strong>Category:</strong> <span th:text="${item.category}"></span></p>
+        <p><strong>Description:</strong> <span th:text="${item.description}"></span></p>
+        <p><strong>Location:</strong> <span th:text="${item.location}"></span></p>
+        <p><strong>Date:</strong> <span th:text="${item.lostDate}"></span></p>
+        <p><strong>Owner:</strong> <span th:text="${item.ownerName}"></span></p>
+        <p><strong>Contact:</strong> <span th:text="${item.contactInfo}"></span></p>
+    </div>
+</div>
+</body>
+</html>

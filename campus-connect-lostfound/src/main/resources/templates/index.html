@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>Campus Connect Lost & Found</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>
+        <i class="fa-solid fa-location-dot"></i>
+        Campus Connect Lost & Found
+    </h1>
+
+    <nav>
+
+        <a th:href="@{/}">
+            <i class="fa-solid fa-house"></i> Home
+        </a>
+
+        <a th:href="@{/lost-items}">
+            <i class="fa-solid fa-magnifying-glass"></i> Lost Items
+        </a>
+
+        <a th:href="@{/found-items}">
+            <i class="fa-solid fa-box"></i> Found Items
+        </a>
+
+        <a th:href="@{/report-lost}">
+            <i class="fa-solid fa-circle-exclamation"></i> Report Lost
+        </a>
+
+        <a th:href="@{/report-found}">
+            <i class="fa-solid fa-hand-holding"></i> Report Found
+        </a>
+
+        <a th:href="@{/claim-item}">
+            <i class="fa-solid fa-id-card"></i> Claim Item
+        </a>
+
+        <a th:href="@{/admin-history}">
+            <i class="fa-solid fa-clock-rotate-left"></i> Admin History
+        </a>
+
+        <a th:href="@{/matches}">
+            <i class="fa-solid fa-link"></i> Smart Match
+        </a>
+
+        <a th:href="@{/priority-ranking}">
+            <i class="fa-solid fa-ranking-star"></i> Priority Ranking
+        </a>
+
+        <a th:href="@{/claim-validations}">
+            <i class="fa-solid fa-shield"></i> Claim Validation
+        </a>
+
+    </nav>
+
+</header>
+
+
+<div class="container">
+
+
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <h2>Smart Campus Lost & Found Platform</h2>
+
+        <p>
+            Campus Connect helps students and staff easily report lost items,
+            share found items, and recover belongings across campus.
+        </p>
+
+        <p>
+            Our system uses database storage and intelligent algorithms
+            to improve recovery efficiency and reduce manual effort.
+        </p>
+
+    </section>
+
+
+    <!-- STATISTICS -->
+
+    <div class="stats">
+
+        <div class="card">
+            <h3 th:text="${lostCount}">0</h3>
+            <p>
+                <i class="fa-solid fa-circle-exclamation"></i>
+                Lost Reports
+            </p>
+        </div>
+
+        <div class="card">
+            <h3 th:text="${foundCount}">0</h3>
+            <p>
+                <i class="fa-solid fa-box"></i>
+                Found Reports
+            </p>
+        </div>
+
+    </div>
+
+
+    <!-- QUICK ACTIONS -->
+
+    <section style="margin-top:40px;text-align:center;">
+
+        <h2 style="color:white;margin-bottom:25px;">
+            Quick Actions
+        </h2>
+
+        <div class="stats">
+
+
+            <!-- REPORT LOST -->
+
+            <div class="card">
+
+                <i class="fa-solid fa-circle-exclamation fa-2x"></i>
+
+                <h3>Report Lost Item</h3>
+
+                <p>
+                    Submit details of a missing item.
+                </p>
+
+                <a th:href="@{/report-lost}">
+                    <button>Report Lost</button>
+                </a>
+
+            </div>
+
+
+            <!-- REPORT FOUND -->
+
+            <div class="card">
+
+                <i class="fa-solid fa-hand-holding fa-2x"></i>
+
+                <h3>Report Found Item</h3>
+
+                <p>
+                    Help someone recover their item.
+                </p>
+
+                <a th:href="@{/report-found}">
+                    <button>Report Found</button>
+                </a>
+
+            </div>
+
+
+            <!-- SEARCH ITEMS -->
+
+            <div class="card">
+
+                <i class="fa-solid fa-search fa-2x"></i>
+
+                <h3>Browse Items</h3>
+
+                <p>
+                    Search lost and found listings.
+                </p>
+
+                <a th:href="@{/found-items}">
+                    <button>Browse</button>
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ALGORITHM FEATURES -->
+
+    <section style="margin-top:50px;text-align:center;">
+
+        <h2 style="color:white;margin-bottom:25px;">
+            Intelligent System Features
+        </h2>
+
+        <div class="stats">
+
+            <div class="card">
+
+                <i class="fa-solid fa-link fa-2x"></i>
+
+                <h3>Smart Matching</h3>
+
+                <p>
+                    Automatically matches lost and found reports
+                    using a score-based comparison algorithm.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <i class="fa-solid fa-ranking-star fa-2x"></i>
+
+                <h3>Priority Ranking</h3>
+
+                <p>
+                    Ranks urgent reports based on item importance
+                    and report details.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <i class="fa-solid fa-shield fa-2x"></i>
+
+                <h3>Claim Validation</h3>
+
+                <p>
+                    Evaluates claim requests and generates
+                    ownership confidence scores.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<footer>
+
+    <p>
+        Campus Connect Lost & Found System © 2026
+    </p>
+
+</footer>
+
+
+</body>
+</html>

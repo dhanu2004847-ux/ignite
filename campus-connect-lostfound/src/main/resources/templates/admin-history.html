@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin History</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <h1>Admin History Dashboard</h1>
+    <nav>
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/lost-items}">Lost Items</a>
+        <a th:href="@{/found-items}">Found Items</a>
+        <a th:href="@{/report-lost}">Report Lost</a>
+        <a th:href="@{/report-found}">Report Found</a>
+        <a th:href="@{/claim-item}">Claim Item</a>
+        <a th:href="@{/admin-history}">Admin History</a>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="stats">
+        <div class="card">
+            <h3 th:text="${lostCount}">0</h3>
+            <p>Total Lost Reports</p>
+        </div>
+        <div class="card">
+            <h3 th:text="${foundCount}">0</h3>
+            <p>Total Found Reports</p>
+        </div>
+        <div class="card">
+            <h3 th:text="${claimCount}">0</h3>
+            <p>Total Claim Requests</p>
+        </div>
+    </div>
+
+    <section class="history-section">
+        <h2>Lost Item History</h2>
+        <div class="item-card" th:each="item : ${lostItems}">
+            <p><strong>ID:</strong> <span th:text="${item.id}"></span></p>
+            <p><strong>Item:</strong> <span th:text="${item.itemName}"></span></p>
+            <p><strong>Category:</strong> <span th:text="${item.category}"></span></p>
+            <p><strong>Description:</strong> <span th:text="${item.description}"></span></p>
+            <p><strong>Location:</strong> <span th:text="${item.location}"></span></p>
+            <p><strong>Date:</strong> <span th:text="${item.lostDate}"></span></p>
+            <p><strong>Owner:</strong> <span th:text="${item.ownerName}"></span></p>
+            <p><strong>Contact:</strong> <span th:text="${item.contactInfo}"></span></p>
+        </div>
+    </section>
+
+    <section class="history-section">
+        <h2>Found Item History</h2>
+        <div class="item-card" th:each="item : ${foundItems}">
+            <p><strong>ID:</strong> <span th:text="${item.id}"></span></p>
+            <p><strong>Item:</strong> <span th:text="${item.itemName}"></span></p>
+            <p><strong>Category:</strong> <span th:text="${item.category}"></span></p>
+            <p><strong>Description:</strong> <span th:text="${item.description}"></span></p>
+            <p><strong>Location:</strong> <span th:text="${item.location}"></span></p>
+            <p><strong>Date:</strong> <span th:text="${item.foundDate}"></span></p>
+            <p><strong>Finder:</strong> <span th:text="${item.finderName}"></span></p>
+            <p><strong>Contact:</strong> <span th:text="${item.contactInfo}"></span></p>
+            <p><strong>Status:</strong> <span th:text="${item.status}"></span></p>
+        </div>
+    </section>
+
+    <section class="history-section">
+        <h2>Claim Request History</h2>
+        <div class="item-card" th:each="claim : ${claims}">
+            <p><strong>Claim ID:</strong> <span th:text="${claim.id}"></span></p>
+            <p><strong>Found Item ID:</strong> <span th:text="${claim.foundItemId}"></span></p>
+            <p><strong>Claimant Name:</strong> <span th:text="${claim.claimantName}"></span></p>
+            <p><strong>Contact:</strong> <span th:text="${claim.claimantContact}"></span></p>
+            <p><strong>Proof:</strong> <span th:text="${claim.proofDetails}"></span></p>
+        </div>
+    </section>
+</div>
+</body>
+</html>
